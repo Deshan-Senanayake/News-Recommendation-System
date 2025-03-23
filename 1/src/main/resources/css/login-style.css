@@ -1,0 +1,86 @@
+/* Top section styling */
+.top-section {
+    -fx-background-color: linear-gradient(to right, #4e54c8, #8f94fb);
+    -fx-padding: 20;
+}
+
+.title-label {
+    -fx-font-size: 36px;
+    -fx-font-family: "Arial Black";
+    -fx-text-fill: white;
+}
+
+/* Center section layout */
+.center-section {
+    -fx-padding: 30;
+    -fx-spacing: 50;
+}
+
+/* User Login Section */
+.user-login-section {
+    -fx-background-color: #e3f2fd;
+    -fx-padding: 30;
+    -fx-background-radius: 10;
+    -fx-pref-width: 400px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+/* Admin Login Section */
+.admin-login-section {
+    -fx-background-color: #f3e5f5;
+    -fx-padding: 30;
+    -fx-background-radius: 10;
+    -fx-pref-width: 400px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 10, 0, 0, 5);
+}
+
+/* Section titles styling */
+.section-title {
+    -fx-font-size: 24px;
+    -fx-font-family: "Arial Bold";
+    -fx-text-fill: #3f51b5;
+}
+
+/* Input fields styling */
+.input-field {
+    -fx-background-radius: 10;
+    -fx-prompt-text-fill: gray;
+    -fx-padding: 10;
+    -fx-pref-width: 300px;
+}
+
+/* Login button styling */
+.login-button {
+    -fx-background-color: #4e54c8;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+    -fx-pref-width: 150px;
+}
+
+.login-button:hover {
+    -fx-opacity: 0.8;
+}
+
+/* Bottom section styling */
+.bottom-section {
+    -fx-background-color: #eeeeee;
+    -fx-padding: 20;
+    -fx-spacing: 20;
+    -fx-alignment: center; /* Center horizontally */
+}
+
+/* Bottom buttons styling */
+.bottom-button {
+    -fx-background-color: #757575;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+    -fx-pref-width: 120px;
+}
+
+.bottom-button:hover {
+    -fx-background-color: #616161;
+}

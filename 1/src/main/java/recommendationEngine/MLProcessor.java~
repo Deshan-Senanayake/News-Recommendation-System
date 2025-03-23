@@ -1,0 +1,54 @@
+package recommendationEngine;
+
+import org.apache.commons.csv.*;
+
+import java.io.File;
+import java.util.*;
+import smile.data.*;
+import smile.feature.*;
+import smile.classification.*;
+import weka.classifiers.functions.Logistic;
+import weka.classifiers.Evaluation;
+import weka.core.*;
+import weka.core.converters.CSVLoader;
+
+
+public class MLProcessor {
+
+    public Instances convertToTFIDF(File datasetFile) throws Exception {
+        // Load the dataset
+        CSVLoader loader = new CSVLoader();
+        loader.setSource(datasetFile);
+        Instances data = loader.getDataSet();
+
+        // Select the text attributes (e.g., title, description, content)
+        int[] textAttributes = {data.attribute("title").index(),
+                data.attribute("description").index(),
+                data.attribute("content").index()};
+
+        // Apply StringToWordVector filter (TF-IDF transformation)
+        weka.filters.unsupervised.attribute.StringToWordVector filter =
+                new weka.filters.unsupervised.attribute.StringToWordVector();
+
+        filter.setTFTransform(true); // Enable TF-IDF
+        filter.setInputFormat(data);
+
+        return Filter.useFilter(data, filter);
+    }
+
+    public void trainUserModel(Instances data) throws Exception {
+        // Set the class index to the target attribute (e.g., action)
+        data.setClassIndex(data.attribute("action").index());
+
+        // Train a Logistic Regression model
+        Logistic logistic = new Logistic();
+        logistic.buildClassifier(data);
+
+        // Evaluate the model (for testing purposes)
+        Evaluation eval = new Evaluation(data);
+        eval.crossValidateModel(logistic, data, 10, new Random(1));
+        System.out.println("Evaluation Results:\n" + eval.toSummaryString());
+    }
+
+
+}

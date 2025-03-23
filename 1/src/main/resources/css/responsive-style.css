@@ -1,0 +1,50 @@
+/* Root background with online image */
+.root {
+
+    -fx-background-color: linear-gradient(to right, #ff6a00, #ee0979);
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+}
+
+/* Title bar styling */
+.title-bar {
+    -fx-background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    -fx-padding: 10;
+}
+
+/* Title text styling */
+.text-title, .headline {
+    -fx-font-size: 70px; /* Initial fixed size */
+    -fx-fill: #040000;
+    -fx-font-family: "Harlow Solid Italic";
+}
+
+/* Tagline text styling */
+.text-tagline, .tagline-text {
+    -fx-font-size: 60px; /* Initial fixed size */
+    -fx-fill: #040000;
+    -fx-font-family: "Informal Roman";
+}
+
+/* Button styling */
+.nav-button {
+    -fx-background-color: rgba(5, 182, 246, 0.83); /* Light blue background */
+    -fx-text-fill: #2b2b2b; /* Dark text color */
+    -fx-font-size: 16px; /* Font size */
+    -fx-font-weight: bold; /* Bold text */
+    -fx-background-radius: 20; /* Rounded corners */
+    -fx-padding: 10 20; /* Padding for better text visibility */
+    -fx-pref-width: 180px; /* Preferred width for buttons */
+}
+
+/* Styling for button hover effect */
+.nav-button:hover {
+    -fx-background-color: rgba(32, 239, 239, 0.85); /* Slightly darker on hover */
+    -fx-cursor: hand; /* Hand cursor on hover */
+}
+
+/* Styling for button pressed effect */
+.nav-button:pressed {
+    -fx-background-color: #cccccc; /* Darker background when pressed */
+}

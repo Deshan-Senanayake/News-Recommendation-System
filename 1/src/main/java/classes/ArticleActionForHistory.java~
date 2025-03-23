@@ -1,0 +1,21 @@
+package classes;
+
+import article_categorization.Article;
+
+public class ArticleAction {
+    private final Article article;
+    private final String action;
+
+    public ArticleAction(Article article, String action) {
+        this.article = article;
+        this.action = action;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public String getAction() {
+        return action;
+    }
+}

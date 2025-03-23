@@ -1,0 +1,33 @@
+package classes;
+
+import article_categorization.Article;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class ArticleManager {
+    public static Article getArticleById(int articleId) {
+        // Implement logic to fetch the article by ID
+        // Example:
+        String query = "SELECT * FROM article_table_c WHERE id = ?";
+        try (Connection conn = DatabaseConnector.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setInt(1, articleId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return new Article(
+                        rs.getInt("id"),
+                        rs.getString("title"),
+                        rs.getString("description"),
+                        rs.getString("content"),
+                        rs.getString("category")
+                );
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+}

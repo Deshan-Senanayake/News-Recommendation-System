@@ -1,0 +1,78 @@
+/* register-style.css */
+
+/* Root background color */
+.root {
+    -fx-background-color: #f7f7f7;
+}
+
+/* Title box styling */
+.title-box {
+    -fx-background-color: linear-gradient(to right, #ff6a00, #ee0979);
+    -fx-padding: 20px;
+}
+
+/* Title label styling */
+.title-label {
+    -fx-font-size: 2em;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Black";
+}
+
+/* Form box styling */
+.form-box {
+    -fx-background-color: #bef3ff;
+    -fx-padding: 20px;
+    -fx-spacing: 10px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-max-width: 400px;
+    -fx-alignment: center;
+}
+
+/* Input fields styling with reduced width */
+.input-field {
+    -fx-background-radius: 10;
+    -fx-prompt-text-fill: gray;
+    -fx-padding: 10;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #b0bec5;
+    -fx-border-radius: 10;
+    -fx-pref-width: 300px;
+    -fx-max-width: 300px; /* Add max width to control width expansion */
+}
+
+
+/* Register button styling */
+.main-button {
+    -fx-background-color: #fd7f00;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+    -fx-pref-width: 180px;
+}
+
+/* Hover effect for the Register button */
+.main-button:hover {
+    -fx-background-color: #ff8c42;
+    -fx-cursor: hand;
+}
+
+/* Back button styling */
+.back-button {
+    -fx-background-color: #757575;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 20;
+    -fx-padding: 10 20;
+    -fx-pref-width: 180px;
+}
+
+/* Hover effect for the Back button */
+.back-button:hover {
+    -fx-background-color: #9e9e9e;
+    -fx-cursor: hand;
+}

@@ -1,0 +1,165 @@
+@startuml
+!define CardStyle Visual
+skinparam styleclass "Visual"
+
+class Article {
+    - id: int
+    - title: String
+    - description: String
+    - content: String
+    - category: String
+    + getId(): int
+    + getTitle(): String
+    + getDescription(): String
+    + getContent(): String
+    + getCategory(): String
+}
+
+class ArticleAPI {
+    - title: String
+    - description: String
+    - url: String
+    - imageUrl: String
+    - publishedAt: String
+    - source: String
+    - author: String
+    - content: String
+    - category: String
+    + getTitle(): String
+    + getDescription(): String
+    + getUrl(): String
+    + getImageUrl(): String
+    + getPublishedAt(): String
+    + getSource(): String
+    + getAuthor(): String
+    + getContent(): String
+    + getCategory(): String
+}
+
+class Recommendation {
+    - articleId: int
+    - similarityScore: double
+    + getArticleId(): int
+    + getSimilarityScore(): double
+}
+
+class RecommendationEngine {
+    - strategy: RecommendationStrategy
+    + generateRecommendationsAsync(): void
+    + processRecommendations(): void
+}
+
+class RecommendationStrategy {
+    {abstract}
+    + recommend(articles: List<Article>, userId: int): List<Recommendation>
+}
+
+class WeightedContentBasedStrategy {
+    + recommend(articles: List<Article>, userId: int): List<Recommendation>
+}
+
+class User {
+    - username: String
+    - email: String
+    - password: String
+    + getUsername(): String
+    + getEmail(): String
+    + getPassword(): String
+}
+
+class UserValidator {
+    + validate(username: String, email: String, password: String, confirmPassword: String): void
+}
+
+class UserDB {
+    + saveUser(user: User): int
+}
+
+class UserSession {
+    - userId: int
+    - username: String
+    - email: String
+    + setUser(userId: int, username: String, email: String): void
+    + getUserId(): int
+    + getUsername(): String
+    + getEmail(): String
+}
+
+class DatasetLoader {
+    + getDatasetPath(userId: int): String
+    + validateDatasetExists(userId: int): void
+}
+
+class UserDatasetCreator {
+    + fetchAllArticlesWithPreferences(userId: int): List<ArticlePreference>
+    + saveUserDataset(userId: int, articles: List<ArticlePreference>): void
+}
+
+class ArticlePreference {
+    - articleId: int
+    - title: String
+    - description: String
+    - content: String
+    - category: String
+    - readFlag: int
+    - likeFlag: int
+    - dislikeFlag: int
+    + getArticleId(): int
+    + getTitle(): String
+    + getDescription(): String
+    + getContent(): String
+    + getCategory(): String
+}
+
+class UserPreference {
+    + saveUserAction(userId: int, articleId: int, category: String, action: String): void
+    + getUserPreferences(userId: int): List<Preference>
+}
+
+class AdminUser {
+    - username: String
+    - password: String
+    + authenticate(adminName: String, password: String): boolean
+}
+
+class AdminManageUser {
+    + fetchAllUsers(): List<UserDataForAdmin>
+    + deleteUser(userId: int): boolean
+}
+
+class DatabaseConnector {
+    + getConnection(): Connection
+}
+
+class NewsService {
+    + fetchNewsData(): String
+}
+
+class NewsParser {
+    + parseNews(jsonData: String): List<ArticleAPI>
+}
+
+class Preference {
+    - articleId: int
+    - action: String
+    - category: String
+    + getArticleId(): int
+    + getAction(): String
+    + getCategory(): String
+}
+
+UserDatasetCreator --> ArticlePreference
+UserPreference --> Preference
+RecommendationEngine --> RecommendationStrategy
+RecommendationStrategy <|-- WeightedContentBasedStrategy
+Article --> ArticleAPI
+AdminManageUser --> AdminUser
+NewsParser --> ArticleAPI
+Recommendation --> Article
+User --> UserSession
+User --> UserDB
+User --> UserPreference
+User --> UserValidator
+RecommendationEngine --> DatasetLoader
+DatasetLoader --> UserDatasetCreator
+@enduml
