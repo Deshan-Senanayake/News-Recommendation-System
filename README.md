@@ -113,6 +113,11 @@ A modular Java-based application that delivers personalized news recommendations
 
 ---
 
+## Issues
+
+Feel free to add any issues you find 
+
+---
 ## 👨‍🎓 Author
 
 **Deshan Senanayake**  
